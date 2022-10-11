@@ -1,0 +1,578 @@
+
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <meta http-equiv="x-ua-compatible" content="ie=edge">
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="assets/home/newcss/all.css">
+     <!-- Bootstrap core CSS -->
+     <link href="assets/home/newcss/bootstrap.min.css" rel="stylesheet">
+     <!-- Material Design Bootstrap -->
+     <link href="assets/home/newcss/mdb.min.css" rel="stylesheet">
+     <!-- Your custom styles (optional) -->
+     <link href="assets/home/newcss/style.min.css" rel="stylesheet">
+     <style type="text/css">
+       html, body, header, .carousel {
+				height: 60vh;
+       }
+       @media (max-width: 740px) {
+         html, body, header, .carousel {
+					height: 100vh;
+         }
+       }
+       @media (min-width: 800px) and (max-width: 850px) {
+         html, body, header, .carousel {
+					height: 100vh;
+         }
+       }
+       @media (min-width: 800px) and (max-width: 850px) {
+				 .navbar:not(.top-nav-collapse) {
+					background: #1C2331!important;
+				 }
+			 }
+     </style>
+ 
+   <!-- Navbar -->
+   <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+     <div class="container">
+       <!-- Brand -->
+       <a class="navbar-brand" href="#" target="_blank">
+         <strong><%= image_tag "home/logo.png", alt: "Myself" %></strong>
+       </a>
+       <!-- Collapse -->
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+         aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <!-- Links -->
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <!-- Left -->
+         <ul class="navbar-nav mr-auto">
+           <li class="nav-item active">
+             <a class="nav-link" href="#">首页
+               <span class="sr-only">(current)</span>
+             </a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="#">OTC</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="#getting-started/download/">ICO</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="#">研读</a>
+           </li>
+         </ul>
+         <!-- Right -->
+         <ul class="navbar-nav nav-flex-icons">
+					 <li class="nav-item">
+					   <a href="#" class="nav-link" target="_blank">
+					     <i class="fab fa-youtube-square"></i>
+					   </a>
+					 </li>
+           <li class="nav-item">
+             <a href="#" class="nav-link">
+               <i class="fab fa-facebook-f"></i>
+             </a>
+           </li>
+           <li class="nav-item">
+             <a href="#" class="nav-link">
+               <i class="fab fa-twitter"></i>
+             </a>
+           </li>
+           <li class="nav-item">
+             <a href="#" class="nav-link border border-light rounded">
+               <i class="fab fa-github mr-2"></i>GitHub
+             </a>
+           </li>
+         </ul>
+       </div>
+     </div>
+   </nav>
+   <!-- Navbar -->
+ 
+   <!--Carousel Wrapper-->
+   <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+     <!--Indicators-->
+     <ol class="carousel-indicators">
+       <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+       <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+       <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+     </ol>
+     <!--/.Indicators-->
+     <!--Slides-->
+     <div class="carousel-inner" role="listbox">
+       <!--First slide-->
+       <div class="carousel-item active">
+         <div class="view" style="background-image: url(https://oss.yiyuannft.com/93.jpg); background-repeat: no-repeat; background-size: cover;">
+           <!-- Mask & flexbox options-->
+           <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+             <!-- Content -->
+             <div class="text-center text-white mx-5 wow fadeIn">
+               <h1 class="mb-4">
+                 <!-- <strong>享受全方位的私人管家服务</strong> -->&nbsp;
+               </h1>
+               <p>
+                 <strong>我们不会去设定一个明确的目标，找寻零界点不如画一条平行弧线，有趣的是思考一个未来离散的点。</strong>
+               </p>
+               <p class="mb-4 d-none d-md-block">
+                 <strong>四月，骏马跃过高山渡过海水，来到田野边...</strong>
+               </p>
+               <a href="<%= new_user_session_path %>" class="btn btn-outline-white btn-lg">开始使用
+                 <i class="fas fa-graduation-cap ml-2"></i>
+               </a>
+             </div>
+             <!-- Content -->
+           </div>
+           <!-- Mask & flexbox options-->
+         </div>
+       </div>
+       <!--/First slide-->
+			 
+       <!--Second slide-->
+       <div class="carousel-item">
+         <div class="view" style="background-image: url(https://oss.yiyuannft.com/94.jpg); background-repeat: no-repeat; background-size: cover;">
+           <!-- Mask & flexbox options-->
+           <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+             <!-- Content -->
+             <div class="text-center text-white mx-5 wow fadeIn">
+               <h1 class="mb-4">
+                 <strong>专业的区块链资产评估</strong>
+               </h1>
+               <p>
+                 <strong>我们会根据专业的评估对资金采取果断的处理</strong>
+               </p>
+               <p class="mb-4 d-none d-md-block">
+                 <strong>我们只对有价值的区块链感兴趣</strong>
+               </p>
+               <a href="<%= new_user_session_path %>" class="btn btn-outline-white btn-lg">开始使用
+                 <i class="fas fa-graduation-cap ml-2"></i>
+               </a>
+             </div>
+             <!-- Content -->
+           </div>
+           <!-- Mask & flexbox options-->
+         </div>
+       </div>
+       <!--/Second slide-->
+       <!--Third slide-->
+       <div class="carousel-item">
+         <div class="view" style="background-image: url(https://oss.yiyuannft.com/92.jpg); background-repeat: no-repeat; background-size: cover;">
+           <!-- Mask & flexbox options-->
+           <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+             <!-- Content -->
+             <div class="text-center text-white mx-5 wow fadeIn">
+               <h1 class="mb-4">
+                 <strong>安全到不触碰朋友的私钥</strong>
+               </h1>
+               <p>
+                 <strong>我们会要求朋友开启禁止提现等资金划出的接口</strong>
+               </p>
+               <p class="mb-4 d-none d-md-block">
+                 <strong>一旦朋友没有开启禁止接口提现，我们将终止我们的服务</strong>
+               </p>
+               <a href="<%= new_user_session_path %>" class="btn btn-outline-white btn-lg">开始使用
+                 <i class="fas fa-graduation-cap ml-2"></i>
+               </a>
+             </div>
+             <!-- Content -->
+           </div>
+           <!-- Mask & flexbox options-->
+         </div>
+       </div>
+       <!--/Third slide-->
+     </div>
+     <!--/.Slides-->
+     <!--Controls-->
+     <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+       <span class="sr-only">Previous</span>
+     </a>
+     <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+       <span class="sr-only">Next</span>
+     </a>
+     <!--/.Controls-->
+   </div>
+   <!--/.Carousel Wrapper-->
+   <!--Main layout-->
+   <main>
+     <div class="container">
+       <!--Section: Main info-->
+       <section class="mt-5 wow fadeIn">
+         <!--Grid row-->
+         <div class="row">
+           <!--Grid column-->
+           <div class="col-md-6 mb-4">
+						 <%= image_tag "home/newimg/mdb-main.jpg", alt: "Myself", class: "img-fluid z-depth-1-half" %>
+           </div>
+           <!--Grid column-->
+           <!--Grid column-->
+           <div class="col-md-6 mb-4">
+             <!-- Main heading -->
+             <h3 class="h3 mb-3">现实世界与虚拟元宇宙的桥梁</h3>
+             <p>我们的愿景是继续拓宽元宇宙的设想上限</p>
+             <p><strong>田边</strong>的技术团队将不断的探索创新现实世界与元宇宙的边界</p>
+             <!-- Main heading -->
+             <hr>
+             <p>
+               <strong>400+</strong> 的元宇宙可交换产品从这里开始
+             </p>
+             <!-- CTA -->
+             <a href="<%= new_user_session_path %>" class="btn btn-indigo btn-md">登录
+               <i class="fas fa-download ml-1"></i>
+             </a>
+             <a href="<%= clients_path %>" class="btn btn-indigo btn-md">控制台
+               <i class="far fa-image ml-1"></i>
+             </a>
+           </div>
+           <!--Grid column-->
+         </div>
+         <!--Grid row-->
+       </section>
+       <!--Section: Main info-->
+       <hr class="my-5">
+       <!--Section: Main features & Quick Start-->
+       <section>
+         <h3 class="h3 text-center mb-5">关于田边</h3>
+         <!--Grid row-->
+         <div class="row wow fadeIn">
+           <!--Grid column-->
+           <div class="col-lg-6 col-md-12 px-4">
+             <!--First row-->
+             <div class="row">
+               <div class="col-1 mr-3">
+                 <i class="fas fa-code fa-2x indigo-text"></i>
+               </div>
+               <div class="col-10">
+                 <h5 class="feature-title">别人贪婪我恐惧</h5>
+                 <p class="grey-text">2021年5月19号前成功帮助朋友们</p>
+               </div>
+             </div>
+             <!--/First row-->
+             <div style="height:30px"></div>
+             <!--Second row-->
+             <div class="row">
+               <div class="col-1 mr-3">
+                 <i class="fas fa-book fa-2x blue-text"></i>
+               </div>
+               <div class="col-10">
+                 <h5 class="feature-title">别人恐惧我贪婪</h5>
+                 <p class="grey-text">在2021年9月25日开始帮助朋友们建立交换仓储，11月10日获得100%的奖励</p>
+               </div>
+             </div>
+             <!--/Second row-->
+             <div style="height:30px"></div>
+             <!--Third row-->
+             <div class="row">
+               <div class="col-1 mr-3">
+                 <i class="fas fa-graduation-cap fa-2x cyan-text"></i>
+               </div>
+               <div class="col-10">
+                 <h5 class="feature-title">永远不碰杠杆</h5>
+                 <p class="grey-text">劝阻所有朋友们不要碰杠杆合约等激进又自杀式的交换，如果你坚持如此，我们将不能成为朋友。</p>
+               </div>
+             </div>
+             <!--/Third row-->
+           </div>
+           <!--/Grid column-->
+           <!--Grid column-->
+           <div class="col-lg-6 col-md-12">
+             <p class="h5 text-center mb-4">观看田边给朋友们的简单介绍</p>
+             <div class="embed-responsive embed-responsive-16by9">
+             </div>
+           </div>
+           <!--/Grid column-->
+         </div>
+         <!--/Grid row-->
+       </section>
+       <!--Section: Main features & Quick Start-->
+       <hr class="my-5">
+       <!--Section: Not enough-->
+       <section>
+         <h2 class="my-5 h3 text-center">常见的全球公认的项目</h2>
+         <!--First row-->
+         <div class="row features-small mb-5 mt-3 wow fadeIn">
+           <!--First column-->
+           <div class="col-md-4">
+             <!--First row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-check-circle fa-2x indigo-text"></i> -->BTC
+               </div>
+               <div class="col-10">
+                 <h6 class="feature-title">Bitcoin</h6>
+                 <p class="grey-text">比特币：一种点对点电子货币系统
+                 </p>
+                 <div style="height:15px"></div>
+               </div>
+             </div>
+             <!--/First row-->
+             <!--Second row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-check-circle fa-2x indigo-text"></i> -->ETH
+               </div>
+               <div class="col-10">
+                 <h6 class="feature-title">Ethereum</h6>
+                 <p class="grey-text">以太坊是一个为去中心化应用（DApp）而生的全球开源平台
+                 </p>
+                 <div style="height:15px"></div>
+               </div>
+             </div>
+             <!--/Second row-->
+             <!--Third row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-check-circle fa-2x indigo-text"></i> -->DOT
+               </div>
+               <div class="col-10">
+                 <h6 class="feature-title">PolkaDot</h6>
+                 <p class="grey-text">Polkadot（波卡链）畅想一种异构的多链架构</p>
+                 <div style="height:15px"></div>
+               </div>
+             </div>
+             <!--/Third row-->
+             <!--Fourth row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-check-circle fa-2x indigo-text"></i> -->ICP
+               </div>
+               <div class="col-10">
+                 <h6 class="feature-title">DFINITY</h6>
+                 <p class="grey-text">DFINITY的愿景是打造全球第一个区块链计算机-Internet Computer</p>
+                 <div style="height:15px"></div>
+               </div>
+             </div>
+             <!--/Fourth row-->
+           </div>
+           <!--/First column-->
+           <!--Second column-->
+           <div class="col-md-4 flex-center">
+						 <%= image_tag "home/newimg/screens.png", alt: "Myself", class: "z-depth-0 img-fluid" %>
+           </div>
+           <!--/Second column-->
+           <!--Third column-->
+           <div class="col-md-4 mt-2">
+             <!--First row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-check-circle fa-2x indigo-text"></i> -->SOL
+               </div>
+               <div class="col-10">
+                 <h6 class="feature-title">Solana</h6>
+                 <p class="grey-text">一条根据摩尔定律扩容、为大规模应用提供高性能和低费用的公链</p>
+                 <div style="height:15px"></div>
+               </div>
+             </div>
+             <!--/First row-->
+             <!--Second row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-check-circle fa-2x indigo-text"></i> -->AVAX
+               </div>
+               <div class="col-10">
+                 <h6 class="feature-title">Avalanche</h6>
+                 <p class="grey-text">Avalanche是一个高性能，可扩展，可自定义的区块链平台</p>
+                 <div style="height:15px"></div>
+               </div>
+             </div>
+             <!--/Second row-->
+             <!--Third row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-check-circle fa-2x indigo-text"></i> -->AR
+               </div>
+               <div class="col-10">
+                 <h6 class="feature-title">Arweave</h6>
+                 <p class="grey-text">AR是一种去中心化数据存储协议，可提供经济上可持续的“永久无服务器网络”和数据存储服务</p>
+                 <div style="height:15px"></div>
+               </div>
+             </div>
+             <!--/Third row-->
+             <!--Fourth row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-check-circle fa-2x indigo-text"></i> -->FTM
+               </div>
+               <div class="col-10">
+                 <h6 class="feature-title">Fantom</h6>
+                 <p class="grey-text">Fantom</p>
+                 <div style="height:15px"></div>
+               </div>
+             </div>
+             <!--/Fourth row-->
+           </div>
+           <!--/Third column-->
+         </div>
+         <!--/First row-->
+       </section>
+       <!--Section: Not enough-->
+       <hr class="mb-5">
+       <!--Section: More-->
+       <section>
+         <h2 class="my-5 h3 text-center">我们友好的朋友链接</h2>
+         <!--First row-->
+         <div class="row features-small mt-5 wow fadeIn">
+           <!--Grid column-->
+           <div class="col-xl-3 col-lg-6">
+             <!--Grid row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fab fa-firefox fa-2x mb-1 indigo-text" aria-hidden="true"></i> -->
+               </div>
+               <div class="col-10 mb-2 pl-3">
+                 <h5 class="feature-title font-bold mb-1"><a href="https://binance.com">binance</a></h5>
+                 <p class="grey-text mt-2"></p>
+               </div>
+             </div>
+             <!--/Grid row-->
+           </div>
+           <!--/Grid column-->
+           <!--Grid column-->
+           <div class="col-xl-3 col-lg-6">
+             <!--Grid row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-level-up-alt fa-2x mb-1 indigo-text" aria-hidden="true"></i> -->
+               </div>
+               <div class="col-10 mb-2">
+                 <h5 class="feature-title font-bold mb-1"><a href="https://coinmarketcap.com">coinmarketcap</a></h5>
+                 <p class="grey-text mt-2"></p>
+               </div>
+             </div>
+             <!--/Grid row-->
+           </div>
+           <!--/Grid column-->
+           <!--Grid column-->
+           <div class="col-xl-3 col-lg-6">
+             <!--Grid row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-comments fa-2x mb-1 indigo-text" aria-hidden="true"></i> -->
+               </div>
+               <div class="col-10 mb-2">
+                 <h5 class="feature-title font-bold mb-1"><a href="https://coinbase.com">coinbase</a></h5>
+                 <p class="grey-text mt-2"></p>
+               </div>
+             </div>
+             <!--/Grid row-->
+           </div>
+           <!--/Grid column-->
+           <!--Grid column-->
+           <div class="col-xl-3 col-lg-6">
+             <!--Grid row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-code fa-2x mb-1 indigo-text" aria-hidden="true"></i> -->
+               </div>
+               <div class="col-10 mb-2">
+                 <h5 class="feature-title font-bold mb-1"><a href="https://okex.com">okex</a></h5>
+                 <p class="grey-text mt-2"></p>
+               </div>
+             </div>
+             <!--/Grid row-->
+           </div>
+           <!--/Grid column-->
+         </div>
+         <!--/First row-->
+         <!--Second row-->
+         <div class="row features-small mt-4 wow fadeIn">
+           <!--Grid column-->
+           <div class="col-xl-3 col-lg-6">
+             <!--Grid row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-cubes fa-2x mb-1 indigo-text" aria-hidden="true"></i> -->
+               </div>
+               <div class="col-10 mb-2">
+                 <h5 class="feature-title font-bold mb-1"><a href="https://uniswap.finance">uniswap</a></h5>
+                 <p class="grey-text mt-2"></p>
+               </div>
+             </div>
+             <!--/Grid row-->
+           </div>
+           <!--/Grid column-->
+           <!--Grid column-->
+           <div class="col-xl-3 col-lg-6">
+             <!--Grid row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-question fa-2x mb-1 indigo-text" aria-hidden="true"></i> -->
+               </div>
+               <div class="col-10 mb-2">
+                 <h5 class="feature-title font-bold mb-1"><a href="https://pancakeswap.finance">pancakeswap</a></h5>
+                 <p class="grey-text mt-2"></p>
+               </div>
+             </div>
+             <!--/Grid row-->
+           </div>
+           <!--/Grid column-->
+           <!--Grid column-->
+           <div class="col-xl-3 col-lg-6">
+             <!--Grid row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="fas fa-th fa-2x mb-1 indigo-text" aria-hidden="true"></i> -->
+               </div>
+               <div class="col-10 mb-2">
+                 <h5 class="feature-title font-bold mb-1"><a href="https://etherscan.io">Etherscan</a></h5>
+                 <!-- <p class="grey-text mt-2"></p> -->
+               </div>
+             </div>
+             <!--/Grid row-->
+           </div>
+           <!--/Grid column-->
+           <!--Grid column-->
+           <div class="col-xl-3 col-lg-6">
+             <!--Grid row-->
+             <div class="row">
+               <div class="col-2">
+                 <!-- <i class="far fa-file-code fa-2x mb-1 indigo-text" aria-hidden="true"></i> -->
+               </div>
+               <div class="col-10 mb-2">
+                 <h5 class="feature-title font-bold mb-1"><a href="https://btc.com">BTC.com</a></h5>
+                 <p class="grey-text mt-2"></p>
+               </div>
+             </div>
+             <!--/Grid row-->
+           </div>
+           <!--/Grid column-->
+         </div>
+         <!--/Second row-->
+       </section>
+       <!--Section: More-->
+     </div>
+   </main>
+   <!--Main layout-->
+   <!--Footer-->
+   <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+     <!--Call to action-->
+     <div class="pt-4">
+			 <a href="<%= new_user_session_path %>" class="btn btn-outline-white" role="button">登录
+			   <i class="fas fa-download ml-2"></i>
+			 </a>
+			 <a href="<%= clients_path %>" class="btn btn-outline-white" role="button">控制台
+			   <i class="far fa-graduation-cap ml-2"></i>
+			 </a>
+     </div>
+     <!--/.Call to action-->
+     <hr class="my-4">
+     <!--Copyright-->
+     <div class="footer-copyright py-3">Copyright &copy; 2022.Company name All rights reserved.<a href="#">田边</a></div>
+     <!--/.Copyright-->
+   </footer>
+   <!--/.Footer-->
+     <!-- SCRIPTS -->
+     <!-- JQuery -->
+     <script type="text/javascript" src="assets/newjs/jquery-3.4.1.min.js"></script>
+     <!-- Bootstrap tooltips -->
+     <script type="text/javascript" src="assets/newjs/popper.min.js"></script>
+     <!-- Bootstrap core JavaScript -->
+     <script type="text/javascript" src="assets/newjs/bootstrap.min.js"></script>
+		 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.js"></script> -->
+     <!-- MDB core JavaScript -->
+     <script type="text/javascript" src="assets/newjs/mdb.min.js"></script>
+       <!-- Initializations -->
+   <script type="text/javascript">
+     // Animations initialization
+     new WOW().init();
+   </script>

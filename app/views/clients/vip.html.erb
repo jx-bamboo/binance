@@ -1,0 +1,130 @@
+<title>田边控制台</title>
+
+<link href="/client/css/css2.css" rel="stylesheet">
+<link rel="stylesheet" href="/client/css/bootstrap.css">
+<link rel="stylesheet" href="/client/css/bold.css">
+<link rel="stylesheet" href="/client/css/perfect-scrollbar.css">
+<link rel="stylesheet" href="/client/css/bootstrap-icons.css">
+<link rel="stylesheet" href="/client/css/app.css">
+<link rel="stylesheet" href="/client/css/client.css">
+
+<div id="app">
+
+	<%= render 'side' %>
+
+	<div id="main">
+		<header class="mb-3">
+			<a href="#" class="burger-btn d-block d-xl-none">
+				<i class="bi bi-justify fs-3"></i>
+			</a>
+		</header>
+
+		<div class="page-heading">
+			<h3>充值方式</h3>
+		</div>
+		<div class="page-content">
+			<section class="row">
+				<div class="col-12 col-lg-9">
+
+					<%#= render 'main' %>
+
+					<div class="row">
+
+						<%#= render 'global' %>
+
+						<div class="col-12 col-xl-6">
+							<div class="card">
+								<div class="card-header">
+									<h4>支付宝支付</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<%= image_tag "alipay.jpeg",class:"img-fluid",width: "200px" %>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-12 col-xl-6">
+							<div class="card">
+								<div class="card-header">
+									<h4>微信支付</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<%= image_tag "wechatpay.png",class:"img-fluid",width: "200px" %>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-xl-12">
+							<div class="card">
+								<div class="card-header">
+									<h4>温馨提示</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										普通会员：5680元/年
+									</div>
+									<div class="table-responsive">
+										高级会员：12680元/年
+									</div>
+									<div class="table-responsive">
+										终身会员：26980元/年
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-lg-3">
+
+					<div class="card">
+						<div class="card-header">
+							<h4>非会员</h4>
+						</div>
+						<div class="card-content pb-4">
+
+							<div class="recent-message d-flex px-4 py-3">
+								<div class="avatar avatar-lg">
+									<%= image_tag "client/5.jpg" %>
+								</div>
+								<div class="name ms-4">
+									<h5 class="mb-1"><%= current_user.int1 %></h5>
+									<h6 class="text-muted mb-0"><%= current_user.email %></h6>
+								</div>
+							</div>
+
+							<div class="px-4">
+								<%= link_to "新增客户" , new_client_path,class: "btn btn-block btn-xl btn-light-primary font-bold mt-3" %>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+		</div>
+
+		<footer>
+			<div class="footer clearfix mb-0 text-muted">
+				<div class="float-start">
+					<p>2021 © 田边</p>
+				</div>
+				<div class="float-end">
+					<p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
+							href="http://ahmadsaugi.com/">田. 边</a></p>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+
+<script src="/client/js/perfect-scrollbar.min.js"></script>
+<!-- <script src="/client/js/bootstrap.bundle.min.js"></script>  -->
+<script src="//cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.js"></script>
+
+<!-- 柱状图>
+<script src="/client/js/apexcharts.js"></script>
+<script src="/client/js/dashboard.js"></script>
+<-->
+<script src="/client/js/main.js"></script>

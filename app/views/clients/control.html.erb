@@ -1,0 +1,257 @@
+<title>田边控制台</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+<style media="screen">
+	.cred{
+		border: 1px solid red;
+	}
+	.main-bg{
+		background: #542cb7;
+	}
+	.client-side-right{
+		/* margin:0; */
+		background: #ebf3ff;
+		overflow: auto;
+	}
+	.client-index{
+		width:100%;
+		height: 100%;
+		position: absolute;
+		left:0px;
+		top:0px;
+		display: flex;
+		flex-direction: row;
+	}
+
+	.avatar img{
+		width: 32px;
+	}
+
+	.card{
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		word-wrap: break-word;
+		background-color: #fff;
+		background-clip: border-box;
+		border: 1px solid rgba(0,0,0,.125);
+		border-radius: .7rem;
+	}
+</style>
+
+<div class="client-index">
+	
+	<%= render 'side' %>
+		
+	<div class="col-sm-10 col-lg-10 col-xl-10 p-2 client-side-right">
+		<%#= render 'main' %>
+		<div class="page-heading">
+			<h3>
+				<%= Time.now %>
+			</h3>
+		</div>
+		<div class="page-content">
+			<section class="row">
+				<div class="col-lg-4">
+					<%#= render 'main' %>
+					<div class="row">
+						<%#= render 'global' %>
+						<div class="col-xl-12">
+							<div class="card">
+								<div class="card-header">
+									<h4>我的资产 &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" id="hide_assets" onchange="changeCheck();"> <span style="font-size: 14px;">显示全部</span></h4>
+								</div>
+								<ul class="list-group list-group-flush">
+								  <li class="list-group-item list-group-item-primary d-flex justify-content-between">
+									  <span>学名</span>
+									  <span>可用数量</span>
+									  <span>操作</span>
+								  </li>
+								  <% if @my_assets.present? %>
+									  <% @my_assets.each do |assets| %>
+									  <%#= next if assets[:free]=="0.00000000" %>
+									  <li class="list-group-item d-flex justify-content-between <%= assets[:free].delete('.').to_i == 0 ? 'd-none as' : '' %> ">
+										  <span class="fw-bold"><%= assets[:asset] %></span>
+										  <span><%= assets[:free].to_f %></span>
+										  <span>
+											  <button type="button" class="btn btn-primary" onclick="buyClick(1, '<%= assets[:asset] %>');" name="buy_<%= assets[:asset] %>">买入</button>
+											  	<button type="button" class="btn btn-danger" onclick="buyClick(0, '<%= assets[:asset] %>');" name="sale_<%= assets[:asset] %>">卖出</button>
+											  
+										  </span>
+									  </li>
+									  <% end %>
+								  <% else %>
+									  <li class="list-group-item">
+											<p class="font-bold ms-3 mb-0 text-center cred">
+												无资产！！！
+											</p>
+										</li>
+								  <% end %>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-5">
+					<div class="card">
+						<div class="card-header">
+							<h4>我的订单</h4>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item list-group-item-primary d-flex justify-content-between">
+								<span>学名</span>
+								<span>价格</span>
+								<span>数量</span>
+								<span>买/卖</span>
+								<span>操作</span>
+							</li>
+							<% if @open_order.present? %>
+								<% @open_order.each do |assets| %>
+								<%= next if assets["status"]!="NEW" %>
+								<li class="list-group-item d-flex justify-content-between">
+									<span class="fw-bold"><%= assets["symbol"] %></span>
+									<span><%= assets["price"].to_f %></span>
+									<span><%= assets["origQty"].to_f %></span>
+									<span><%= assets["side"] %></span>
+									<button type="button" class="btn btn-danger" onclick="cancle_order('<%= assets['symbol'] %>','<%= assets['orderId'] %>');">撤销</button>
+								</li>
+								<% end %>
+							<% else %>
+								<li class="list-group-item">
+									<p class="font-bold ms-3 mb-0 cred text-center">
+										没有线上订单哦！
+									</p>
+								</li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="col-lg-3">
+					<div class="card">
+						<div class="card-body py-4">
+							<div class="d-flex align-items-center">
+								<div class="avatar avatar-xl">
+									<%= image_tag "client/1.jpg" %>
+								</div>
+								<div class="ms-3 name">
+									<h5 class="font-bold">
+										<%= @name %>
+									</h5>
+									<h6 class="text-muted mb-0">binancezh.co</h6>
+								</div>
+							</div>
+							<div class="px-4">
+								<%= link_to "新增客户", new_client_path, class: "btn btn-primary mt-3" %>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="card">
+						<div class="card-body py-4">
+							<div class="d-flex align-items-center">
+								<form class="form-floating" action="<%= cancle_all_order_clients_path %>" method="post">
+								<%= tag(:input, :type=> "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+								  <div class="mb-3">
+									<input type="text" class="form-control" name="ex" placeholder="BTCUSDT" required>
+									<input type="hidden" class="form-control" name="format" value="<%= @client_id %>">
+								  </div>
+								  <div class="col-12">
+									<%= submit_tag "撤销交易对下所有挂单", class: "btn btn-primary mt-3 text-wrap" %>
+								  </div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</section>
+		</div>
+
+		<hr>
+		<footer>
+			<div class="footer clearfix mb-0 text-muted">
+				<div class="float-start">
+					<p>2021 © 田边</p>
+				</div>
+				<div class="float-end">
+					<p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="">田. 边</a></p>
+				</div>
+			</div>
+		</footer>
+	</div>
+</div>
+
+<%= javascript_include_tag 'jquery.min' %>
+<script src="/client/js/perfect-scrollbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.js"></script>
+<script src="/client/js/main.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/3.5.1/layer.js"></script>
+
+<script>
+
+	function _for(ar, n) {
+		for (let index = 0; index < ar.length; index++) {
+			if(n==0){
+				ar[index].classList.add("d-none");
+				ar[index].classList.remove("d-block");
+			}else if(n==1){
+				ar[index].classList.add("d-block");
+				ar[index].classList.remove("d-none");
+			}
+		}
+	}
+	function changeCheck() {
+		var x = document.getElementById("hide_assets");
+		var ob = document.getElementsByClassName("as");
+		if (x.checked === true) {
+			_for(ob, 1);
+		} else {
+			_for(ob, 0);
+		}
+	}
+
+	function buyClick(stype, coin) {
+		console.log(stype, coin);
+		layer.open({
+			type: 2,
+			title: '委托下单',
+			maxmin: true,
+			shadeClose: true, //点击遮罩关闭层
+			area: ['70%', '40%'],
+			content: '<%= get_control_clients_path %>?entrust=' + stype + "_" + coin + "_" + "<%= @client_id %>"
+		});
+	}
+	
+	function cancle_order(symble,orderId){
+		console.log(symble);
+		console.log(orderId);
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		{
+			xmlhttp=new XMLHttpRequest();
+		}else {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function()
+		{
+			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			{
+				let mydata = xmlhttp.responseText;
+				if(mydata=="ok"){
+					location.reload();
+				}else{
+					alert("error")
+				}
+			}
+		}
+		xmlhttp.open("POST","/clients/cancle_order?client_id=<%= @client_id %>",true);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send("symble="+symble+"&order_id="+orderId);
+	}
+</script>
+
+

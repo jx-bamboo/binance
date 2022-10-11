@@ -1,0 +1,24 @@
+<%= render 'devise/shared/new_css', cache: true %>
+<div class="container">
+  <div class="card-wrap">
+    <div class="card border-0 shadow card--login" id="login">
+      <div class="card-body">
+        <h2 class="card-title">欢迎登录！</h2>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <%= render "devise/shared/error_messages", resource: resource %>
+          </div>
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "form-control" , placeholder: "邮箱" ,required: "required" %>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password, autocomplete: "current-password" ,class: "form-control" , placeholder: "密码" ,required: "required" %>
+          </div>
+          <p><a href="<%= new_registration_path(resource_name) %>">我要注册</a></p>
+          <%= f.submit "登录" ,class: "btn btn-lg" %>
+        <% end %>
+      </div>
+	  <a class="btn btn-back" href="/" target="_self">首</a>
+    </div>
+  </div>
+</div>

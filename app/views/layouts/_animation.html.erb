@@ -1,0 +1,70 @@
+<div id="page_end_html">
+	<%= javascript_include_tag 'jquery.min' %>
+	<script type="text/javascript">
+		var a_idx = 0;
+		jQuery(document).ready(function($) {
+			$("body").click(function(e) {
+				// var a = new Array("❤渡边最帅！❤","❤我爱渡边！❤","❤**喜欢渡边**❤","❤渣女去死❤","❤渣女剃光头❤","❤渣女死全家❤","❤不做渣男❤","❤给渡边请安❤","❤赐给渡边比特币❤","❤只爱渡边❤","❤我想要渡边❤","❤渡边不做咸鱼！❤", "❤渡边拒绝懒惰！❤", "❤渡边想做吃货❤", "❤渡边向大佬学习❤", "❤渡边扶我起来~❤", "❤come on渡边❤",
+				// 	"❤渡边一直在路上~❤", "❤渡边累了~❤", "❤渡边再趴一会❤", "❤渡边66666❤", "❤渡边高兴的飞起*****❤","为你付出这么多你却没有感动过");
+				var a = new Array("❤💰❤","❤🪙❤","❤💲❤","❤🐶❤","❤💩❤","❤💰❤","❤💵❤","❤💷❤","❤🍰❤","❤🍉❤","❤🚴‍♀️❤","❤🚗❤", "❤🏍️❤", "❤✈️❤", "❤🚄❤");
+				var $i = $("<span></span>").text(a[a_idx]);
+				a_idx = (a_idx + 1) % a.length;
+				var x = e.pageX,
+					y = e.pageY;
+				$i.css({
+					"z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+					"top": y - 20,
+					"left": x,
+					"position": "absolute",
+					"font-weight": "bold",
+					"color": "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) +
+						"," + ~~(255 * Math.random()) + ")"
+				});
+				$("body").append($i);
+				$i.animate({
+						"top": y - 180,
+						"opacity": 0
+					},
+					1500,
+					function() {
+						$i.remove();
+					});
+			});
+		});
+	</script>
+	<script src="/assets/mouse-click.js"></script>
+	<!-- <canvas width="1777" height="1100px" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas> -->
+	<!--右下角人物 -->
+	<!-- <script src="/assets/L2Dwidget.min.js"></script>
+	<script src="/assets/L2Dwidget.0.min.js"></script> -->
+	<!--小帅哥： https://unpkg.com/live2d-widget-model-chitose@1.0.5/assets/chitose.model.json-->
+	<!--萌娘：https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json-->
+	<!--小可爱（女）：https://unpkg.com/live2d-widget-model-koharu@1.0.5/assets/koharu.model.json-->
+	<!--小可爱（男）：https://unpkg.com/live2d-widget-model-haruto@1.0.5/assets/haruto.model.json-->
+	<!--初音：https://unpkg.com/live2d-widget-model-miku@1.0.5/assets/miku.model.json-->
+	<!-- 上边的不同链接显示的是不同的小人，这个可以根据需要来选择 下边的初始化部分，可以修改宽高来修改小人的大小，或者是鼠标移动到小人上的透明度，也可以修改小人在页面出现的位置。 -->
+	<script>
+		/*https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json*/
+		// L2Dwidget.init({
+		// 	"model": {
+		// 		jsonPath: "//unpkg.com/live2d-widget-model-chitose@1.0.5/assets/chitose.model.json",
+		// 		"scale": 1
+		// 	},
+		// 	"display": {
+		// 		"position": "left",
+		// 		"width": 66,
+		// 		"height": 88,
+		// 		"hOffset": 0,
+		// 		"vOffset": -20
+		// 	},
+		// 	"mobile": {
+		// 		"show": true,
+		// 		"scale": 0.5
+		// 	},
+		// 	"react": {
+		// 		"opacityDefault": 0.8,
+		// 		"opacityOnHover": 0.1
+		// 	}
+		// });
+	</script>
+</div>

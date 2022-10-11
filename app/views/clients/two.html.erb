@@ -1,0 +1,426 @@
+<style>
+  body {
+    display: flex;
+    height: 100vh;
+    min-height: 35rem;
+    align-items: center;
+    justify-content: center;
+    font-family: josefin sans, sans-serif
+  }
+
+  .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+  }
+
+  .card-wrap {
+    position: relative;
+    margin: 0 auto
+  }
+
+  @media(min-width:769px) {
+    .card-wrap {
+      max-width: 450px
+    }
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center
+  }
+
+  .card-body p {
+    font-size: 1.1rem
+  }
+
+  .card-title {
+    font-weight: 700;
+    font-size: 1.8rem
+  }
+
+  .badge-wrap {
+    display: flex;
+    justify-content: center
+  }
+
+  .badge-wrap a.badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 .2rem;
+    padding: 0;
+    opacity: .7;
+    border-radius: 50%;
+    transition: opacity .3s ease-in;
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer
+  }
+
+  .badge-wrap a.badge:hover {
+    opacity: 1;
+    color: #fff
+  }
+
+  .btn {
+    color: #fff !important;
+    width: 10em;
+    transition: all .4s;
+    border-radius: 20px;
+    border: 2px solid transparent
+  }
+
+  .btn.btn-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    border: 0
+  }
+
+  .btn.btn-back:hover {
+    border: 0 !important
+  }
+
+  .form-control {
+    font-family: handle, cursive
+  }
+
+  .form-control::-webkit-input-placeholder {
+    font-family: josefin sans, sans-serif;
+    letter-spacing: .1em;
+    font-size: .9rem
+  }
+
+  .form-control:-ms-input-placeholder {
+    font-family: josefin sans, sans-serif;
+    letter-spacing: .1em;
+    font-size: .9rem
+  }
+
+  .form-control::-ms-input-placeholder {
+    font-family: josefin sans, sans-serif;
+    letter-spacing: .1em;
+    font-size: .9rem
+  }
+
+  .form-control::placeholder {
+    font-family: josefin sans, sans-serif;
+    letter-spacing: .1em;
+    font-size: .9rem
+  }
+
+  .card--welcome {
+    z-index: 3
+  }
+
+  .card--welcome .card-title {
+    color: #ee9ca7
+  }
+
+  .card--welcome .btn-wrap {
+    display: flex;
+    flex-direction: column
+  }
+
+  .card--welcome .btn {
+    color: #fff;
+    transition: all .3s
+  }
+
+  .card--welcome .btn:hover {
+    background-color: rgba(238, 156, 167, .25);
+    font-weight: 700
+  }
+
+  .card--welcome .btn-register {
+    margin-bottom: .8em;
+    background-color: #ee9ca7
+  }
+
+  .card--welcome .btn-register:hover {
+    color: #ee9ca7
+  }
+
+  .card--welcome .btn-login {
+    background-color: #a7bfe8
+  }
+
+  .card--register .card-title {
+    color: #ee9ca7
+  }
+
+  .card--register .badge {
+    background-color: #ee9ca7
+  }
+
+  .card--register .btn {
+    background-color: #ee9ca7
+  }
+
+  .card--register .btn:hover {
+    background-color: #fff;
+    color: #ee9ca7 !important;
+    font-weight: 700;
+    border: 2px solid rgba(238, 156, 167, .25)
+  }
+
+  .card--register .btn:focus {
+    box-shadow: 0 0 0 .2rem rgba(238, 156, 167, .25)
+  }
+
+  .card--register .form-control {
+    color: #ee9ca7;
+    border-color: rgba(238, 156, 167, .25)
+  }
+
+  .card--register .form-control:focus {
+    box-shadow: 0 0 0 .2rem rgba(238, 156, 167, .25)
+  }
+
+  .card--login .card-title {
+    color: #a7bfe8
+  }
+
+  .card--login .badge {
+    background-color: #a7bfe8
+  }
+
+  .card--login .btn {
+    background-color: #a7bfe8
+  }
+
+  .card--login .btn:hover {
+    background-color: #fff;
+    color: #a7bfe8 !important;
+    font-weight: 700;
+    border: 2px solid rgba(167, 191, 232, .25)
+  }
+
+  .card--login .btn:focus {
+    box-shadow: 0 0 0 .2rem rgba(167, 191, 232, .25)
+  }
+
+  .card--login .form-control {
+    color: #a7bfe8;
+    border-color: rgba(167, 191, 232, .25)
+  }
+
+  .card--login .form-control:focus {
+    box-shadow: 0 0 0 .2rem rgba(167, 191, 232, .25)
+  }
+
+  body {
+    background: linear-gradient(to right, #ffdde1, #ee9ca7, #a7bfe8, #6190e8);
+    background-size: 500% 500%;
+    transition: background 3s ease;
+    background-position: 50% 50%
+  }
+
+  body.is-register {
+    background-position: 0% 50%
+  }
+
+  body.is-login {
+    background-position: 100% 50%
+  }
+
+  .card {
+    transition: all .3s .1s ease-out
+  }
+
+  .card.is-show {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index: 5
+  }
+</style>
+
+
+<div class="container">
+  <div class="card-wrap">
+    <div class="card border-0 shadow card--login" id="login">
+      <div class="card-body">
+        <h2 class="card-title">欢迎登录！</h2>
+        <p>请输入库链验证码</p>
+        <p id="notice"><%= notice %></p>
+        <%= form_with url: two_deal_clients_path do |f| %>
+          <div class="form-group">
+            <%= f.text_field :code, autofocus: true, autocomplete: "code" ,class: "form-control" , placeholder: "code" ,required: "required" %>
+          </div>
+          <p><a href="<%= destroy_user_session_path %>" data-method="delete" >取消登录</a></p>
+          <%= f.submit "确认" ,class: "btn btn-lg" %>
+        <% end %>
+      </div>
+      <button class="btn btn-back js-btn" data-target="welcome"><i class="fas fa-angle-left"></i></button>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+  #yddContainer {
+    display: block;
+    font-family: Microsoft YaHei;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: -4px;
+    left: -4px;
+    font-size: 12px;
+    border: 1px solid
+  }
+
+  #yddTop {
+    display: block;
+    height: 22px
+  }
+
+  #yddTopBorderlr {
+    display: block;
+    position: static;
+    height: 17px;
+    padding: 2px 28px;
+    line-height: 17px;
+    font-size: 12px;
+    color: #5079bb;
+    font-weight: bold;
+    border-style: none solid;
+    border-width: 1px
+  }
+
+  #yddTopBorderlr .ydd-sp {
+    position: absolute;
+    top: 2px;
+    height: 0;
+    overflow: hidden
+  }
+
+  .ydd-icon {
+    left: 5px;
+    width: 17px;
+    padding: 0px 0px 0px 0px;
+    padding-top: 17px;
+    background-position: -16px -44px
+  }
+
+  .ydd-close {
+    right: 5px;
+    width: 16px;
+    padding-top: 16px;
+    background-position: left -44px
+  }
+
+  #yddKeyTitle {
+    float: left;
+    text-decoration: none
+  }
+
+  #yddMiddle {
+    display: block;
+    margin-bottom: 10px
+  }
+
+  .ydd-tabs {
+    display: block;
+    margin: 5px 0;
+    padding: 0 5px;
+    height: 18px;
+    border-bottom: 1px solid
+  }
+
+  .ydd-tab {
+    display: block;
+    float: left;
+    height: 18px;
+    margin: 0 5px -1px 0;
+    padding: 0 4px;
+    line-height: 18px;
+    border: 1px solid;
+    border-bottom: none
+  }
+
+  .ydd-trans-container {
+    display: block;
+    line-height: 160%
+  }
+
+  .ydd-trans-container a {
+    text-decoration: none;
+  }
+
+  #yddBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 22px;
+    line-height: 22px;
+    overflow: hidden;
+    background-position: left -22px
+  }
+
+  .ydd-padding010 {
+    padding: 0 10px
+  }
+
+  #yddWrapper {
+    color: #252525;
+    z-index: 10001;
+    background: url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ab20.png);
+  }
+
+  #yddContainer {
+    background: #fff;
+    border-color: #4b7598
+  }
+
+  #yddTopBorderlr {
+    border-color: #f0f8fc
+  }
+
+  #yddWrapper .ydd-sp {
+    background-image: url(chrome-extension://eopjamdnofihpioajgfdikhhbobonhbb/ydd-sprite.png)
+  }
+
+  #yddWrapper a,
+  #yddWrapper a:hover,
+  #yddWrapper a:visited {
+    color: #50799b
+  }
+
+  #yddWrapper .ydd-tabs {
+    color: #959595
+  }
+
+  .ydd-tabs,
+  .ydd-tab {
+    background: #fff;
+    border-color: #d5e7f3
+  }
+
+  #yddBottom {
+    color: #363636
+  }
+
+  #yddWrapper {
+    min-width: 250px;
+    max-width: 400px;
+  }
+</style>
+<%= javascript_include_tag 'jquery.min' %>

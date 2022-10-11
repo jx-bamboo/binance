@@ -1,0 +1,36 @@
+
+<%= form_with(model: client,class: "bs-example bs-example-form",role: "form") do |form| %>
+  <% if client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(client.errors.count, "个 error") %> 导致系统禁止你的数据提交:</h2>
+
+      <ul>
+        <% client.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<br>
+  <div class="form-group">
+    <label for="client_name">客户的名:</label>
+    <%= form.text_field :name,class: "form-control",placeholder: "请键入一个好听的名字吧" %>
+  </div>
+  <div class="form-group">
+    <label for="client_platform">选一个你喜欢的平台:</label>
+    <%= form.select :platform, [["请选择平台"], ["币安平台",0], ["火币平台",1]] , {},class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <label for="client_public_key">公开的🔑 :</label>
+    <%= form.text_field :public_key,class: "form-control",placeholder: "请键入客户公开的 🔑 " %>
+  </div>
+  <div class="form-group">
+    <label for="client_secret_key">秘密的🔑 :</label>
+    <%= form.text_field :secret_key,class: "form-control",placeholder: "请键入客户秘密的 🔑 " %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "确认",class: "btn btn-primary mt-1" %>
+  </div>
+<% end %>
+<br>

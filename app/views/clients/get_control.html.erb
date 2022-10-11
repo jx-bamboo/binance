@@ -1,0 +1,29 @@
+<div class="container">
+	<h1><%= @stype_coin[1] %>USDT</h1>
+	<div class="row">
+		<form action="<%= post_control_clients_path %>" method="post" class="form">
+			<%= tag(:input, :type=> "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<button class="btn btn-outline-secondary" type="button">价格</button>
+				</div>
+				<input type="" min="0.00" class="form-control" name="price" placeholder="price" required />
+			</div>
+
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<button class="btn btn-outline-secondary" type="button">数量</button>
+				</div>
+				<input type="" min="0.00" class="form-control" name="number" placeholder="number" required />
+			</div>
+			<input type="hidden" name="client_id" value="<%= @stype_coin[2] %>">
+			<% if @stype_coin[0].to_i==1 %>
+			<button class="btn btn-success btn-lg" type="submit" name="buy"
+				value="<%= @stype_coin[1] %>USDT">买入</button>
+			<% else %>
+			<button type="submit" class="btn btn-danger btn-lg" name="sale"
+				value="<%= @stype_coin[1] %>USDT">卖出</button>
+			<% end %>
+		</form>
+	</div>
+</div>
